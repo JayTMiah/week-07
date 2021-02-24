@@ -20,7 +20,8 @@ class OwnerListResource extends JsonResource
             'last_name' => $this->last_name,
             'email' => $this->email,
             'telephone' => $this->telephone,
-            'full address' => $this->fullAddress()
+            'full address' => $this->fullAddress(),
+            'treatments' => $this->treatments->pluck("name")
         ];
     }
 }

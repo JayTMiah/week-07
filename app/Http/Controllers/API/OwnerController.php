@@ -34,7 +34,7 @@ class OwnerController extends Controller
         $data = $request->all();
 
         // store owner in a variable
-        $owner = Owner::create($data);
+        $owner = Owner::create($data)->setTreatment($request->get("treatments"));
 
         // create Owner with data and store in DB
         // and return it as JSON
@@ -68,9 +68,9 @@ class OwnerController extends Controller
         // get the request data
         $data = $request->all();
 
-        // update the article using the fill method
-        // then save it to the database
-        $owner->update($data);
+        $owner->fill($data)->save();
+
+        $owner->setTreatments($request->get("treatments"));
 
         // return the updated version
         return new OwnerResource($owner);

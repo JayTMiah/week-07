@@ -31,7 +31,9 @@ class OwnerRequest extends FormRequest
             'address_1' => ['required', 'string', 'max:50'],
             'address_2' => ['nullable', 'string', 'max:50'],
             'town' => ['required', 'string', 'max:50'],
-            'postcode' => ['required', 'string', 'max:8']
+            'postcode' => ['required', 'string', 'max:8'],
+            'treatments' => ['required', 'array'],
+            'treatments.*' => ['string', 'max:50']
         ];
     }
 }
